@@ -51,7 +51,7 @@ services:
                 image: prom/prometheus
                 restart: on-failure
                 hostname: prometheus
-                command: --storage.tsdb.retention.time=31d
+                command: --storage.tsdb.retention.time=31d --config.file=/etc/prometheus/prometheus.yml
                 ports:
                         - 127.0.0.1:9090:9090
                 volumes:
