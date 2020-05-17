@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+        beacon:
+                container_name: beacon-chain
+                image: gcr.io/prysmaticlabs/prysm/beacon-chain:${IMAGE_VERSION_TAG}
+                restart: always
+                hostname: beacon-chain
+                command: --datadir=/data --log-file=/data/beacon.log --p2p-host-ip=${PUBLIC_IP} --enable-new-state-mgmt
+                ports:
+                        # - 4000:4000
+                        - 13000:13000
+                        - 12000:12000
+                volumes:
+                        - ./beacon:/data
+        validator:
+                container_name: validator
+                image: gcr.io/prysmaticlabs/prysm/validator:${IMAGE_VERSION_TAG}
+                restart: on-failure
+                hostname: validator
+                command: --beacon-rpc-provider=beacon:4000 --keymanager=keystore --keymanageropts=/data/keystore.json --log-file=/data/validator.log
+                volumes:
+                        - ./validator:/data
+        slasher:
+                container_name: slasher
+                image: gcr.io/prysmaticlabs/prysm/slasher:${IMAGE_VERSION_TAG}
+                restart: "no"
+                hostname: slasher
+                command: echo "slasher disabled!"
+                # command: --beacon-rpc-provider=beacon:4000 --datadir=/data --log-file=/data/slasher.log
+                volumes:
+                        - ./slasher:/data
