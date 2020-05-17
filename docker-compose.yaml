@@ -5,9 +5,8 @@ services:
                 image: gcr.io/prysmaticlabs/prysm/beacon-chain:${IMAGE_VERSION_TAG}
                 restart: always
                 hostname: beacon-chain
-                command: --datadir=/data --log-file=/data/beacon.log --p2p-host-ip=${PUBLIC_IP} --enable-new-state-mgmt
+                command: --datadir=/data --p2p-host-ip=${PUBLIC_IP} --enable-new-state-mgmt
                 ports:
-                        # - 4000:4000
                         - 13000:13000
                         - 12000:12000
                 volumes:
@@ -17,7 +16,7 @@ services:
                 image: gcr.io/prysmaticlabs/prysm/validator:${IMAGE_VERSION_TAG}
                 restart: on-failure
                 hostname: validator
-                command: --beacon-rpc-provider=beacon:4000 --keymanager=keystore --keymanageropts=/data/keystore.json --log-file=/data/validator.log
+                command: --beacon-rpc-provider=beacon:4000 --keymanager=keystore --keymanageropts=/data/keystore.json
                 volumes:
                         - ./validator:/data
         slasher:
@@ -25,6 +24,6 @@ services:
                 image: gcr.io/prysmaticlabs/prysm/slasher:${IMAGE_VERSION_TAG}
                 restart: always
                 hostname: slasher
-                command: --beacon-rpc-provider=beacon:4000 --datadir=/data --log-file=/data/slasher.log
+                command: --beacon-rpc-provider=beacon:4000 --datadir=/data
                 volumes:
                         - ./slasher:/data
