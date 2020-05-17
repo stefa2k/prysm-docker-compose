@@ -1,0 +1,7 @@
+version: "3.7"
+services:
+        slasher:
+                image: tianon/true
+                restart: "no"
+                command: ""
+                entrypoint: ""
