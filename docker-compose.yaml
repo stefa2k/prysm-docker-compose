@@ -11,6 +11,11 @@ services:
                         - 12000:12000
                 volumes:
                         - ./beacon:/data
+                logging:
+                        driver: "json-file"
+                        options:
+                                max-file: "10"
+                                max-size: "100m"
         validator:
                 container_name: validator
                 image: gcr.io/prysmaticlabs/prysm/validator:${IMAGE_VERSION_TAG}
@@ -19,6 +24,11 @@ services:
                 command: --beacon-rpc-provider=beacon:4000 --keymanager=keystore --keymanageropts=/data/keystore.json
                 volumes:
                         - ./validator:/data
+                logging:
+                        driver: "json-file"
+                        options:
+                                max-file: "10"
+                                max-size: "100m"
         slasher:
                 container_name: slasher
                 image: gcr.io/prysmaticlabs/prysm/slasher:${IMAGE_VERSION_TAG}
@@ -27,3 +37,8 @@ services:
                 command: --beacon-rpc-provider=beacon:4000 --datadir=/data
                 volumes:
                         - ./slasher:/data
+                logging:
+                        driver: "json-file"
+                        options:
+                                max-file: "10"
+                                max-size: "100m"
