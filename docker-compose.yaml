@@ -23,7 +23,7 @@ services:
                 hostname: validator
                 depends_on:
                         - beacon
-                command: --beacon-rpc-provider=beacon:4000 --keymanager=keystore --keymanageropts=/data/keystore.json
+                command: --beacon-rpc-provider=beacon:4000 --keymanager=keystore --keymanageropts=/data/keystore.json --enable-account-metrics
                 volumes:
                         - ./validator:/data
                 logging:
@@ -71,7 +71,7 @@ services:
                 ports:
                         - 127.0.0.1:3000:3000
                 volumes:
-                        - ./grafana/provisioning/:/etc/grafana/provisioning/
+                        - ./grafana/provisioning:/etc/grafana/provisioning
                 logging:
                         driver: "json-file"
                         options:
