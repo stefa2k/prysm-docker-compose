@@ -19,6 +19,7 @@ This table gets updated every time a new release happens until prysm dev team ad
 
 Version | IMAGE_VERSION_TAG
 --------|------------------
+schlesi | schlesi
 alpha.8 | HEAD-f831a7
 
 ### your-public-ip4-address
