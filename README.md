@@ -59,3 +59,18 @@ View logs of a certain service (in this case beacon, only the last 100 lines)
 ```
 docker-compose logs --tail=100 beacon
 ```
+
+## Slasher
+To enable the slasher delete the `slasher` service in `docker-compose.override.yaml`.
+
+## Prometheus
+To enable Prometheus delete the `prometheus` service in `docker-compose.override.yaml`.
+
+Runs on localhost:9090, scrapes data of beacon, validator and slasher.
+
+## Grafana
+To enable Grafana delete the `grafana` service in `docker-compose.override.yaml`.
+
+Grafana runs on localhost:3000 and uses the data provided by prometheus service.
+
+Login with username `admin` and password `admin` (Grafana defaults), data source to Prometheus is already established. I recommend using https://github.com/GuillaumeMiralles/prysm-grafana-dashboard.
