@@ -1,7 +1,18 @@
 version: "3.7"
-#services:
-        #        slasher:
-        #                image: tianon/true
-        #        restart: "no"
-        #        command: ""
-        #        entrypoint: ""
+services:
+        slasher:
+                image: tianon/true
+                restart: "no"
+                command: ""
+                entrypoint: ""
+        prometheus:
+                image: tianon/true
+                restart: "no"
+                command: ""
+                entrypoint: ""
+        grafana:
+                image: tianon/true
+                restart: "no"
+                command: ""
+                entrypoint: ""
+
