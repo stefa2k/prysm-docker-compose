@@ -5,9 +5,9 @@ services:
                 image: gcr.io/prysmaticlabs/prysm/beacon-chain:${IMAGE_VERSION_TAG}
                 restart: always
                 hostname: beacon-chain
-                command: --datadir=/data --p2p-host-ip=${PUBLIC_IP} --enable-new-state-mgmt
+                command: --datadir=/data --p2p-host-ip=${PUBLIC_IP} --enable-new-state-mgmt --p2p-host-dns=${PUBLIC_HOST_DNS} --p2p-tcp-port=${PUBLIC_TCP_PORT}
                 ports:
-                        - 13000:13000
+                        - ${PUBLIC_TCP_PORT}:13000
                         - 12000:12000
                 volumes:
                         - ./beacon:/data
