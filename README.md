@@ -3,7 +3,9 @@
 ## Services
 * beacon
 * validator
-* slasher
+* slasher (disabled by default)
+* prometheus (disabled by default)
+* grafana (disabled by default)
 
 ## Prepare your .env before running your node
 Create a `.env` file in the same directory as your `docker-compose.yaml` with the following content:
