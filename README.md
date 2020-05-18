@@ -63,9 +63,9 @@ docker-compose logs --tail=100 beacon
 ```
 
 ## Validator
-Please read up on how to use the [validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/) and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/).
+Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/).
 
-use the directory `./validator` as your datadir of the validator, e. g. put your `keystore.json` with the following content:
+Use the directory `./validator` as your datadir of the validator, e. g. put your `keystore.json` with the following content:
 ```
 {
     "path": "/data",
