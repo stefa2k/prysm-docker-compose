@@ -12,6 +12,8 @@ Create a `.env` file in the same directory as your `docker-compose.yaml` with th
 ```
 IMAGE_VERSION_TAG=[prysm-version]
 PUBLIC_IP=[your-public-ip4-address]
+PUBLIC_HOST_DNS=
+PUBLIC_TCP_PORT=13000
 ```
 
 ### prysm-version
