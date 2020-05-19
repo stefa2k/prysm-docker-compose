@@ -13,9 +13,11 @@ Credits to [prysm-grafana-dashboard](https://github.com/GuillaumeMiralles/prysm-
 ## Services
 * beacon
 * validator
-* slasher (disabled by default)
-* prometheus (disabled by default)
-* grafana (disabled by default)
+* slasher
+* prometheus
+* grafana
+
+**All services are enabled by default.** In case you want to only run beacon & validator move the `compose-examples/docker-compose.override.yml_beacon_validator` file in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yml`. Read up on [docker-compose files & override](https://docs.docker.com/compose/extends/#multiple-compose-files) to customize your setup.
 
 ## Prepare your .env before running your node
 Create a `.env` file in the same directory as your `docker-compose.yaml` with the following content:
@@ -38,7 +40,9 @@ alpha.8 | HEAD-f831a7
 To gain a better connectivity for your beacon node you need to specifiy your public ip there and follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
 
 ## Validator accounts
-Gain staking rewards by putting your validator account files in the directory `./validator`. See [Activating a Validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/) to guide you through the process of setting them up.
+Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) to stake funds and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/).
+
+Use the directory `./validator` as your datadir of the validator, put your desired password into `keystore.json`, the file is already prepared.
 
 ## Run your prysm Ethereum 2.0 staking node
 
@@ -65,20 +69,13 @@ docker-compose down
 ```
 Please note: This will also erase your logs, they are stored with your containers and will be deleted as well.
 
+## Monitoring
 ## Logging
 Docker takes care of log files and log file rotation as well as limit (set to 10x100mb log files for each service).
 View logs of a certain service (in this case beacon, only the last 100 lines)
 ```
 docker-compose logs --tail=100 beacon
 ```
-
-## Validator
-Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/).
-
-Use the directory `./validator` as your datadir of the validator, put your desired password into `keystore.json`, the file is already prepared.
-
-## Slasher
-To enable the slasher delete the `slasher` service in `docker-compose.override.yaml`.
 
 ## Prometheus
 To enable Prometheus delete the `prometheus` service in `docker-compose.override.yaml`.
