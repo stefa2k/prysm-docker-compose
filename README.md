@@ -70,19 +70,19 @@ docker-compose down
 Please note: This will also erase your logs, they are stored with your containers and will be deleted as well.
 
 ## Monitoring
-## Logging
+### Logging
 Docker takes care of log files and log file rotation as well as limit (set to 10x100mb log files for each service).
 View logs of a certain service (in this case beacon, only the last 100 lines)
 ```
 docker-compose logs --tail=100 beacon
 ```
 
-## Prometheus
+### Prometheus
 To enable Prometheus delete the `prometheus` service in `docker-compose.override.yaml`.
 
 Runs on localhost:9090, scrapes data of beacon, validator and slasher.
 
-## Grafana
+### Grafana
 To enable Grafana delete the `grafana` service in `docker-compose.override.yaml`.
 
 Grafana runs on localhost:3000 and uses the data provided by prometheus service.
