@@ -63,7 +63,7 @@ services:
                                 max-size: "100m"
         grafana:
                 container_name: grafana
-                image: grafana/grafana
+                image: grafana/grafana:6.7.3
                 restart: on-failure
                 hostname: grafana
                 depends_on:
