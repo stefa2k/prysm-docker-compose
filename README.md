@@ -40,9 +40,14 @@ alpha.8 | HEAD-f831a7
 To gain a better connectivity for your beacon node you need to specifiy your public ip and/or your dns name there and follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
 
 ## Validator accounts
-Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) to stake funds and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/).
+Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) to stake funds and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/). These are only short steps to make it work fast:
 
-Use the directory `./validator` as your datadir of the validator, put your desired password into `keystore.json`, the file is already prepared.
+1. Put your desired password into `./validator/keystore.json`.
+2. Run `docker-compose -f create-account.yaml run validator-create-account` and use the **same password**.
+3. Use the `Raw Transaction Data` of the output at https://prylabs.net/participate to send GöETH to the smart contract.
+4. Run at least the `beacon` and the `validator` (see chapter below) and wait until the deposit is complete and your node is active.
+
+You can repeat step 2 & 3 as often as you like, make sure to restart your validator to make it notice your new accounts!
 
 ## Run your prysm Ethereum 2.0 staking node
 
