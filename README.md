@@ -19,12 +19,12 @@ Credits to [prysm-grafana-dashboard](https://github.com/GuillaumeMiralles/prysm-
 
 **All services are enabled by default.** In case you want to only run beacon & validator move the `compose-examples/docker-compose.override.yml_beacon_validator` file in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yml`. Read up on [docker-compose files & override](https://docs.docker.com/compose/extends/#multiple-compose-files) to customize your setup.
 
-## Prepare your .env before running your node
-Create a `.env` file in the same directory as your `docker-compose.yaml` with the following content:
+## (optional) Prepare your .env before running your node
+Edit `.env` file to set different options for the node:
 ```
 IMAGE_VERSION_TAG=[prysm-version]
 PUBLIC_IP=[your-public-ip4-address]
-PUBLIC_HOST_DNS=
+PUBLIC_HOST_DNS=[your-public-host-dns]
 PUBLIC_TCP_PORT=13000
 ```
 
@@ -36,8 +36,8 @@ Version | IMAGE_VERSION_TAG
 schlesi | schlesi
 alpha.8 | HEAD-f831a7
 
-### your-public-ip4-address
-To gain a better connectivity for your beacon node you need to specifiy your public ip there and follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
+### your-public-ip4-address & your-public-host-dns
+To gain a better connectivity for your beacon node you need to specifiy your public ip and/or your dns name there and follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
 
 ## Validator accounts
 Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) to stake funds and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/).
