@@ -23,11 +23,12 @@ services:
                 hostname: beacon-chain
                 depends_on:
                         - geth
-                command: --datadir=/data --p2p-host-ip=${PUBLIC_IP} --p2p-host-dns=${PUBLIC_HOST_DNS} --p2p-tcp-port=${PUBLIC_TCP_PORT} --http-web3provider=http://geth:8545 --web3provider=ws://geth:8546
+                command: --config-file=/config/beacon.yaml
                 ports:
-                        - ${PUBLIC_TCP_PORT}:13000
+                        - 13000:13000
                         - 12000:12000
                 volumes:
+                        - ./config/beacon.yaml:/config/beacon.yaml
                         - ./beacon:/data
                 logging:
                         driver: "json-file"
