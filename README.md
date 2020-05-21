@@ -19,25 +19,24 @@ Credits to [prysm-grafana-dashboard](https://github.com/GuillaumeMiralles/prysm-
 
 **All services are enabled by default.** In case you want to only run beacon & validator move the `compose-examples/docker-compose.override.yml_beacon_validator` file in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yml`. Read up on [docker-compose files & override](https://docs.docker.com/compose/extends/#multiple-compose-files) to customize your setup.
 
-## (optional) Prepare your .env before running your node
-Edit `.env` file to set different options for the node:
+## (optional) Configure your node
+
+### Prysm version
+Edit `.env` file to set the docker tag to use (version of nodes):
 ```
 IMAGE_VERSION_TAG=[prysm-version]
-PUBLIC_IP=[your-public-ip4-address]
-PUBLIC_HOST_DNS=[your-public-host-dns]
-PUBLIC_TCP_PORT=13000
 ```
-
-### prysm-version
-This table gets updated every time a new release happens until prysm dev team adds a "stable" tag or something similar. https://github.com/prysmaticlabs/documentation/issues/103
+It's set to the latest stable version.
 
 Version | IMAGE_VERSION_TAG
 --------|------------------
 schlesi | schlesi
 alpha.8 | HEAD-f831a7
 
-### your-public-ip4-address & your-public-host-dns
-To gain a better connectivity for your beacon node you need to specifiy your public ip and/or your dns name there and follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
+This table gets updated every time a new release happens until prysm dev team adds a "stable" tag or something similar. https://github.com/prysmaticlabs/documentation/issues/103
+
+### Public ip & other Prysm parameters/arguments
+Configuration files are located in the folder `./config`. To gain a better connectivity for your beacon node you should specifiy your public ip and/or your dns name in `./config/beacon.yaml`. Follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
 
 ## Validator accounts
 Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) to stake funds and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/). These are only short steps to make it work fast:
