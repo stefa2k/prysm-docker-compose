@@ -28,7 +28,7 @@ services:
                         - 13000:13000
                         - 12000:12000
                 volumes:
-                        - ./config/beacon.yaml:/config/beacon.yaml
+                        - ./config/beacon.yaml:/config/beacon.yaml:ro
                         - ./beacon:/data
                 logging:
                         driver: "json-file"
@@ -42,8 +42,9 @@ services:
                 hostname: validator
                 depends_on:
                         - beacon
-                command: --beacon-rpc-provider=beacon:4000 --keymanager=keystore --keymanageropts=/data/keystore.json --enable-account-metrics
+                command: --config-file=/config/validator.yaml
                 volumes:
+                        - ./config/validator.yaml:/config/validator.yaml:ro
                         - ./validator:/data
                 logging:
                         driver: "json-file"
