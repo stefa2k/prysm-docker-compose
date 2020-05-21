@@ -1,27 +1,22 @@
 version: "3.7"
-services:
-        geth:
-                image: tianon/true
-                restart: "no"
-                command: ""
-                entrypoint: ""
-        beacon:
-                volumes:
-                        - ./config/beacon-no-geth.yaml:/config/beacon.yaml:ro
-                        - ./beacon:/data
-        slasher:
-                image: tianon/true
-                restart: "no"
-                command: ""
-                entrypoint: ""
-        prometheus:
-                image: tianon/true
-                restart: "no"
-                command: ""
-                entrypoint: ""
-        grafana:
+
+x-disabled-service:
+        &disabled-service
                 image: tianon/true
                 restart: "no"
                 command: ""
                 entrypoint: ""
 
+services:
+        geth:
+                <<: *disabled-service
+        beacon:
+                volumes:
+                        - ./config/beacon-no-geth.yaml:/config/beacon.yaml:ro
+                        - ./beacon:/data
+        slasher:
+                <<: *disabled-service
+        prometheus:
+                <<: *disabled-service
+        grafana:
+                <<: *disabled-service
