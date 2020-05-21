@@ -1,7 +1,7 @@
 # prysm-docker-compose
 This docker-compose suite includes all parts to run and monitor a Prysm Ethereum 2.0 staking node. Please read this README in order to customize it to your needs.
 
-![image](https://user-images.githubusercontent.com/54934211/82322232-77ca0200-99d6-11ea-80cb-622da470768a.png)
+![image](https://user-images.githubusercontent.com/54934211/82576760-5ad63000-9b8a-11ea-9089-c6a60a692fb1.png)
 
 ![image](https://user-images.githubusercontent.com/54934211/82309772-d5a11e80-99c3-11ea-831d-e485b48e920e.png)
 
