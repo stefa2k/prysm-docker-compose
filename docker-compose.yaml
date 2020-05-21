@@ -5,7 +5,7 @@ services:
                 image: ethereum/client-go:v1.9.14
                 restart: always
                 hostname: geth
-                command: --goerli --rpc --rpcport=8545 --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --wsport=8546
+                command: --goerli --rpc --rpcport=8545 --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --wsport=8546 --wsorigins="*" --rpcvhosts="*"
                 ports:
                         - 30303:30303/tcp
                         - 30303:30303/udp
@@ -23,7 +23,7 @@ services:
                 hostname: beacon-chain
                 depends_on:
                         - geth
-                command: --datadir=/data --p2p-host-ip=${PUBLIC_IP} --p2p-host-dns=${PUBLIC_HOST_DNS} --p2p-tcp-port=${PUBLIC_TCP_PORT} --http-web3provider=http://geth:8545 --web3provider=wss://geth:8546
+                command: --datadir=/data --p2p-host-ip=${PUBLIC_IP} --p2p-host-dns=${PUBLIC_HOST_DNS} --p2p-tcp-port=${PUBLIC_TCP_PORT} --http-web3provider=http://geth:8545 --web3provider=ws://geth:8546
                 ports:
                         - ${PUBLIC_TCP_PORT}:13000
                         - 12000:12000
