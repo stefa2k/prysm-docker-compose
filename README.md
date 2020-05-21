@@ -11,13 +11,17 @@ This docker-compose suite includes all parts to run and monitor a Prysm Ethereum
 Credits to [prysm-grafana-dashboard](https://github.com/GuillaumeMiralles/prysm-grafana-dashboard) for providing the dashboards!
 
 ## Services
+* geth (beacon conntects to it to see deposits for validators)
 * beacon
 * validator
 * slasher
 * prometheus
 * grafana
 
-**All services are enabled by default.** In case you want to only run beacon & validator move the `compose-examples/docker-compose.override.yml_beacon_validator` file in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yml`. Read up on [docker-compose files & override](https://docs.docker.com/compose/extends/#multiple-compose-files) to customize your setup.
+**All services are enabled by default.**
+
+### Minimal Setup (beacon & validator only)
+In case you want to run only beacon & validator (geth, slasher, prometheus, grafana get disabled) move the `compose-examples/docker-compose.beacon-validator.override.yaml` file in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yaml`. Read up on [docker-compose files & override](https://docs.docker.com/compose/extends/#multiple-compose-files) to customize your setup further.
 
 ## (optional) Configure your node
 
