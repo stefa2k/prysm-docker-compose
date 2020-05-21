@@ -1,4 +1,12 @@
 version: "3.7"
+
+x-logging: &logging
+        logging:
+                driver: "json-file"
+                options:
+                        max-file: "10"
+                        max-size: "100m"
+
 services:
         geth:
                 container_name: geth
@@ -11,11 +19,7 @@ services:
                         - 30303:30303/udp
                 volumes:
                         - ./geth:/root/.ethereum
-                logging:
-                        driver: "json-file"
-                        options:
-                                max-file: "10"
-                                max-size: "100m"
+                <<: *logging
         beacon:
                 container_name: beacon-chain
                 image: gcr.io/prysmaticlabs/prysm/beacon-chain:${PRYSM_DOCKER_TAG}
@@ -30,11 +34,7 @@ services:
                 volumes:
                         - ./config/beacon.yaml:/config/beacon.yaml:ro
                         - ./beacon:/data
-                logging:
-                        driver: "json-file"
-                        options:
-                                max-file: "10"
-                                max-size: "100m"
+                <<: *logging
         validator:
                 container_name: validator
                 image: gcr.io/prysmaticlabs/prysm/validator:${PRYSM_DOCKER_TAG}
@@ -46,11 +46,7 @@ services:
                 volumes:
                         - ./config/validator.yaml:/config/validator.yaml:ro
                         - ./validator:/data
-                logging:
-                        driver: "json-file"
-                        options:
-                                max-file: "10"
-                                max-size: "100m"
+                <<: *logging
         slasher:
                 container_name: slasher
                 image: gcr.io/prysmaticlabs/prysm/slasher:${PRYSM_DOCKER_TAG}
@@ -62,11 +58,7 @@ services:
                 volumes:
                         - ./config/slasher.yaml:/config/slasher.yaml:ro
                         - ./slasher:/data
-                logging:
-                        driver: "json-file"
-                        options:
-                                max-file: "10"
-                                max-size: "100m"
+                <<: *logging
         prometheus:
                 container_name: prometheus
                 image: prom/prometheus
@@ -77,11 +69,7 @@ services:
                         - 127.0.0.1:9090:9090
                 volumes:
                         - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
-                logging:
-                        driver: "json-file"
-                        options:
-                                max-file: "10"
-                                max-size: "100m"
+                <<: *logging
         grafana:
                 container_name: grafana
                 image: grafana/grafana:7.0.0
@@ -93,10 +81,5 @@ services:
                         - 127.0.0.1:3000:3000
                 volumes:
                         - ./grafana/provisioning:/etc/grafana/provisioning
-                logging:
-                        driver: "json-file"
-                        options:
-                                max-file: "10"
-                                max-size: "100m"
-
+                <<: *logging
 
