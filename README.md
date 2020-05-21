@@ -86,13 +86,9 @@ docker-compose logs --tail=100 beacon
 ```
 
 ### Prometheus
-To enable Prometheus delete the `prometheus` service in `docker-compose.override.yaml`.
-
-Runs on localhost:9090, scrapes data of beacon, validator and slasher.
+Runs on http://localhost:9090, scrapes data of beacon, validator and slasher.
 
 ### Grafana
-To enable Grafana delete the `grafana` service in `docker-compose.override.yaml`.
+Grafana listens on http://localhost:3000 and uses the data provided by prometheus service.
 
-Grafana runs on localhost:3000 and uses the data provided by prometheus service.
-
-Login with username `admin` and password `admin` (Grafana defaults), data source to Prometheus is already established. I recommend using https://github.com/GuillaumeMiralles/prysm-grafana-dashboard.
+Login with username `admin` and password `admin` (Grafana defaults), data source to Prometheus is already established and dashboards installed.
