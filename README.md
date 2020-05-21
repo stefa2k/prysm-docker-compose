@@ -28,11 +28,11 @@ In case you want to run only beacon & validator (geth, slasher, prometheus, graf
 ### Prysm version
 Edit `.env` file to set the docker tag to use (version of nodes):
 ```
-IMAGE_VERSION_TAG=[prysm-version]
+PRYSM_DOCKER_TAG=[prysm-version]
 ```
 It's set to the latest stable version.
 
-Version | IMAGE_VERSION_TAG
+Version | PRYSM_DOCKER_TAG
 --------|------------------
 schlesi | schlesi
 alpha.8 | HEAD-f831a7
