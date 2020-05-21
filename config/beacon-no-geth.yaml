@@ -1,0 +1,16 @@
+############################################################
+##
+## Read up on parameters on
+## https://docs.prylabs.network/docs/prysm-usage/parameters/
+##
+############################################################
+
+datadir: /data
+
+#######################
+# Connectivity settings 
+p2p-host-ip: ""
+p2p-host-dns: ""
+
+# changing this also needs to be changed in docker-compose.yaml!
+p2p-tcp-port: 13000

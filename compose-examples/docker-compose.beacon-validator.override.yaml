@@ -1,5 +1,14 @@
 version: "3.7"
 services:
+        geth:
+                image: tianon/true
+                restart: "no"
+                command: ""
+                entrypoint: ""
+        beacon:
+                volumes:
+                        - ./config/beacon-no-geth.yaml:/config/beacon.yaml:ro
+                        - ./beacon:/data
         slasher:
                 image: tianon/true
                 restart: "no"
