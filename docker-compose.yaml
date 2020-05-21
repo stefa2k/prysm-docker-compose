@@ -58,8 +58,9 @@ services:
                 hostname: slasher
                 depends_on:
                         - beacon
-                command: --beacon-rpc-provider=beacon:4000 --datadir=/data
+                command: --config-file=/config/slasher.yaml
                 volumes:
+                        - ./config/slasher.yaml:/config/slasher.yaml:ro
                         - ./slasher:/data
                 logging:
                         driver: "json-file"
