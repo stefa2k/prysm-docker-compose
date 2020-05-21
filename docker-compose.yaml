@@ -1,11 +1,29 @@
 version: "3.7"
 services:
+        geth:
+                container_name: geth
+                image: ethereum/client-go:v1.9.14
+                restart: always
+                hostname: geth
+                command: --goerli --rpc --rpcport=8545 --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --wsport=8546
+                ports:
+                        - 30303:30303/tcp
+                        - 30303:30303/udp
+                volumes:
+                        - ./geth:/root/.ethereum
+                logging:
+                        driver: "json-file"
+                        options:
+                                max-file: "10"
+                                max-size: "100m"
         beacon:
                 container_name: beacon-chain
                 image: gcr.io/prysmaticlabs/prysm/beacon-chain:${IMAGE_VERSION_TAG}
                 restart: always
                 hostname: beacon-chain
-                command: --datadir=/data --p2p-host-ip=${PUBLIC_IP} --p2p-host-dns=${PUBLIC_HOST_DNS} --p2p-tcp-port=${PUBLIC_TCP_PORT}
+                depends_on:
+                        - geth
+                command: --datadir=/data --p2p-host-ip=${PUBLIC_IP} --p2p-host-dns=${PUBLIC_HOST_DNS} --p2p-tcp-port=${PUBLIC_TCP_PORT} --http-web3provider=http://geth:8545 --web3provider=wss://geth:8546
                 ports:
                         - ${PUBLIC_TCP_PORT}:13000
                         - 12000:12000
