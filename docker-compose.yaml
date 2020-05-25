@@ -82,4 +82,33 @@ services:
                 volumes:
                         - ./grafana/provisioning:/etc/grafana/provisioning
                 <<: *logging
+        elasticsearch:
+                container_name: elasticsearch
+                image: docker.elastic.co/elasticsearch/elasticsearch:${ELK_VERSION}
+                restart: on-failure
+                hostname: elasticsearch
+                ports:
+                        - 127.0.0.1:9200:9200
+                        - 127.0.0.1:9300:9300
+                environment:
+                        ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+                        discovery.type: single-node
+                volumes:
+                        - ./config/elasticsearch.yaml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+                        - elasticsearch:/usr/share/elasticsearch/data
+                <<: *logging
+        kibana:
+                container_name: kibana
+                image: docker.elastic.co/kibana/kibana:${ELK_VERSION}
+                restart: on-failure
+                hostname: kibana
+                depends_on:
+                        - elasticsearch
+                ports:
+                        - 127.0.0.1:5601:5601
+                volumes:
+                        - ./config/kibana.yaml:/usr/share/kibana/config/kibana.yml:ro
+                <<: *logging
 
+volumes:
+        elasticsearch:        
