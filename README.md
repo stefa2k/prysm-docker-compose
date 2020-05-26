@@ -52,6 +52,9 @@ Please read up on how to use the [validator](https://docs.prylabs.network/docs/h
 
 You can repeat step 2 & 3 as often as you like, make sure to restart your validator to make it notice your new accounts!
 
+## TLS
+Secure connection for gRPC (protocol used by beacon node, validator and slasher) is established with TLS. To create a proper certificate and key to use take a look at a proper [guide](https://www.linode.com/docs/security/ssl/create-a-self-signed-tls-certificate/). Make sure to enter `beacon` when asked for `Common Name (e.g. server FQDN or YOUR name)` otherwise the client (validator & slasher) will refuse the use of the certificate. Put your `.crt` and `.key` files into `./config/tls` with the names `beacon.crt` and `beacon.key`.
+
 ## Run your prysm Ethereum 2.0 staking node
 
 ### Start it up
