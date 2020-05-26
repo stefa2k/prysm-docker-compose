@@ -17,3 +17,7 @@ keymanageropts: /data/keystore.json
 ############
 # Monitoring
 enable-account-metrics: true
+
+###############
+# gRPC security
+tls-cert: /config/tls/beacon.crt

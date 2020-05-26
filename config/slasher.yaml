@@ -10,3 +10,7 @@ datadir: /data
 ##############
 # Connectivity
 beacon-rpc-provider: beacon:4000
+
+###############
+# gRPC security
+tls-cert: /config/tls/beacon.crt

@@ -19,3 +19,8 @@ p2p-tcp-port: 13000
 # Connection to geth container
 http-web3provider: http://geth:8545
 web3provider: ws://geth:8546
+
+###############
+# gRPC security
+tls-cert: /config/tls/beacon.crt
+tls-key: /config/tls/beacon.key

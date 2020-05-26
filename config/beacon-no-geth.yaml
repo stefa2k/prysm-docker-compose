@@ -9,8 +9,13 @@ datadir: /data
 
 #######################
 # Connectivity settings 
-p2p-host-ip: ""
+p2p-host-ip: "95.217.176.107"
 p2p-host-dns: ""
 
 # changing this also needs to be changed in docker-compose.yaml!
 p2p-tcp-port: 13000
+
+###############
+# gRPC security
+tls-cert: /config/tls/beacon.crt
+tls-key: /config/tls/beacon.key

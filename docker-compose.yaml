@@ -33,6 +33,8 @@ services:
                         - 12000:12000
                 volumes:
                         - ./config/beacon.yaml:/config/beacon.yaml:ro
+                        - ./config/tls/beacon.crt:/config/tls/beacon.crt:ro
+                        - ./config/tls/beacon.key:/config/tls/beacon.key:ro
                         - ./beacon:/data
                 <<: *logging
         validator:
@@ -45,6 +47,7 @@ services:
                 command: --config-file=/config/validator.yaml
                 volumes:
                         - ./config/validator.yaml:/config/validator.yaml:ro
+                        - ./config/tls/beacon.crt:/config/tls/beacon.crt:ro
                         - ./validator:/data
                 <<: *logging
         slasher:
@@ -57,6 +60,7 @@ services:
                 command: --config-file=/config/slasher.yaml
                 volumes:
                         - ./config/slasher.yaml:/config/slasher.yaml:ro
+                        - ./config/tls/beacon.crt:/config/tls/beacon.crt:ro
                         - ./slasher:/data
                 <<: *logging
         prometheus:
