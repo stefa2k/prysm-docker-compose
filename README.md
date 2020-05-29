@@ -52,6 +52,33 @@ Please read up on how to use the [validator](https://docs.prylabs.network/docs/h
 
 You can repeat step 2 & 3 as often as you like, make sure to restart your validator to make it notice your new accounts!
 
+### (early WIP) create lots of validator accounts
+Requirements:
+* Synced geth service
+* Enjoying the thrill to maybe loose coins
+
+#### Steps
+##### Set password
+Edit `.env` and set the password for your new accounts.
+##### Create a geth account
+```
+docker exec -it geth geth --goerli account new
+```
+##### Get lots of coins from your favorite coin buddy
+Go on Discord and ask for coins, Ivan is a good bet.
+##### Unlock account
+```
+docker exec -it geth geth attach http://localhost:8545/ --exec="personal.unlockAccount(\"put-your-address-here\",'put-your-password-here',3600)"
+```
+##### Check script
+Location: `./createAccounts.sh`
+Please check for the number of validators to create and if there is something that might go wrong on your setup. Start with a very small number of validators and increase if everything works.
+##### Run the script
+```
+./createAccounts.sh
+```
+Watch for errors. Your validator accounts will appear in directory `./validator`.
+
 ## Run your prysm Ethereum 2.0 staking node
 
 ### Start it up
