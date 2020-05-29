@@ -13,10 +13,11 @@ services:
                 image: ethereum/client-go:v1.9.14
                 restart: always
                 hostname: geth
-                command: --goerli --rpc --rpcport=8545 --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --wsport=8546 --wsorigins="*" --rpcvhosts="*"
+                command: --goerli --rpc --rpcport=8545 --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --wsport=8546 --wsorigins="*" --rpcvhosts="*" --allow-insecure-unlock --rpcapi="db,eth,net,web3,personal"
                 ports:
                         - 30303:30303/tcp
                         - 30303:30303/udp
+                        - 127.0.0.1:8545:8545
                 volumes:
                         - ./geth:/root/.ethereum
                 <<: *logging
