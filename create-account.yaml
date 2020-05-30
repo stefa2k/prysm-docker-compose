@@ -3,6 +3,6 @@ services:
         validator-create-account:
                 container_name: validator-create-account
                 image: gcr.io/prysmaticlabs/prysm/validator:${PRYSM_DOCKER_TAG}
-                command: accounts create --keystore-path=/data --password=${CREATE-ACCOUNT-PASSWORD}
+                command: accounts create --witti-testnet --keystore-path=/data --password=${CREATE-ACCOUNT-PASSWORD}
                 volumes:
                         - ./validator:/data

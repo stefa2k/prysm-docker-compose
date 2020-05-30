@@ -5,11 +5,13 @@
 ##
 ############################################################
 
+dev: true
+
 datadir: /data
 
 #######################
 # Connectivity settings 
-p2p-host-ip: ""
+p2p-host-ip: 116.203.246.230
 p2p-host-dns: ""
 
 # changing this also needs to be changed in docker-compose.yaml!
@@ -19,3 +21,18 @@ p2p-tcp-port: 13000
 # Connection to geth container
 http-web3provider: http://geth:8545
 web3provider: ws://geth:8546
+
+##########################
+# Slasher's
+skip-regen-historical-states: true
+enable-new-state-mgmt: true
+
+###############
+# Witti Testnet
+witti-testnet: true
+bootstrap-node: "enr:-Ku4QJsxkOibTc9FXfBWYmcdMAGwH4bnOOFb4BlTHfMdx_f0WN-u4IUqZcQVP9iuEyoxipFs7-Qd_rH_0HfyOQitc7IBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD1pf1CAAAAAP__________gmlkgnY0gmlwhLAJM9iJc2VjcDI1NmsxoQL2RyM26TKZzqnUsyycHQB4jnyg6Wi79rwLXtaZXty06YN1ZHCCW8w"
+bootstrap-node: "enr:-LK4QKTkBk3I1y4__nfX18Jdhcko2ExQzqpr8byjTB7t8HVFTLKNvipBZbPItODKWFdhBVN8vVh89ScZPdSTNoiLXXoBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD2d10HAAABE___________gmlkgnY0gmlwhLAJM9iJc2VjcDI1NmsxoQICvB04SDhZK46nvJmm6GZvo8RsKctq4uWK6jQRZBxewoN0Y3CCIyiDdWRwgiMo"
+bootstrap-node: "enr:-LK4QO-InqtcvYyJysIC8m-GimjQxeh2fMYNg557rfLD3iOtK5rZo6-1N09tw0NeIt4ht2rLtCNS6NGwU38qarXaVUMBh2F0dG5ldHOIAAAAAAAAAACEZXRoMpD2d10HAAABE___________gmlkgnY0gmlwhLAJM9iJc2VjcDI1NmsxoQISU9N1Kj03Z-IBVlevP56X9qkZxA1fv62TLRKlfzI1LYN0Y3CCMsiDdWRwgi7g"
+bootstrap-node: "enr:-KG4QOWbLS8XipfTFUjjaboBG8F4fkw7YtSSvvenmlGz6z8LeknOAxokwlhQWwiV3AftLgreD8hC94EnXdYzw93aVdQDhGV0aDKQ9nddBwAAARP__________4JpZIJ2NIJpcISwCTPYiXNlY3AyNTZrMaECLYJchUH6A-oyZenBKm5hLwIDy6xZqksxOt24irvEOEuDdGNwgnUwg3VkcIJ1MA"
+
+min-sync-peers: 1

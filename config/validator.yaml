@@ -17,3 +17,9 @@ keymanageropts: /data/keystore.json
 ############
 # Monitoring
 enable-account-metrics: true
+
+graffiti: "Stefan#3917"
+
+###############
+# Witti Testnet
+witti-testnet: true
