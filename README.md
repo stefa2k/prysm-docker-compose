@@ -34,6 +34,7 @@ It's set to the latest stable version.
 
 Version | PRYSM_DOCKER_TAG
 --------|------------------
+alpha.9 | HEAD-3fe47c
 witti   | https://github.com/stefa2k/prysm-docker-compose/tree/witti
 schlesi | schlesi
 alpha.8 | HEAD-f831a7
