@@ -1,0 +1,21 @@
+############################################################
+##
+## Read up on parameters on
+## https://docs.prylabs.network/docs/prysm-usage/parameters/
+##
+############################################################
+
+##############
+# Connectivity
+beacon-rpc-provider: beacon:4000
+
+#####################################
+# Validator accounts & key management
+keymanager: wallet
+keymanageropts: /data/keystoreWallet.json
+
+############
+# Monitoring
+enable-account-metrics: true
+
+graffiti: ""
