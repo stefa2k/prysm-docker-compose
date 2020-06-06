@@ -47,7 +47,7 @@ Configuration files are located in the folder `./config`. To gain a better conne
 ## Validator accounts
 Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) to stake funds and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/). These are only short steps to make it work fast:
 
-1. Put your desired password into `./validator/keystore.json`.
+1. Put your desired password into `./validator/keystore.json` and `.env`
 2. Run `docker-compose -f create-account.yaml run validator-create-account` and use the **same password**.
 3. Use the `Raw Transaction Data` of the output at https://prylabs.net/participate to send GöETH to the smart contract.
 4. Run at least the `beacon` and the `validator` (see chapter below) and wait until the deposit is complete and your node is active.
