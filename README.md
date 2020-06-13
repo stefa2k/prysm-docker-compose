@@ -123,3 +123,7 @@ Runs on http://localhost:9090, scrapes data of beacon, validator and slasher.
 Grafana listens on http://localhost:3000 and uses the data provided by prometheus service.
 
 Login with username `admin` and password `admin` (Grafana defaults), data source to Prometheus is already established and dashboards installed.
+
+## FAQ
+### My `docker-compose` command doesn't work (e. g. `ERROR: Version in "./docker-compose.yaml" is unsupported.`)
+Most linux distributions (including Ubuntu) don't serve recent docker-compose versions in their package management. You can install a compatible version by following [official docker.io documentation](https://docs.docker.com/compose/install/).
