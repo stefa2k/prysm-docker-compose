@@ -70,7 +70,8 @@ services:
                 ports:
                         - 127.0.0.1:9090:9090
                 volumes:
-                        - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+                        - ./config/prometheus.yaml:/etc/prometheus/prometheus.yml
+                        - ./prometheus:/prometheus
                 <<: *logging
         grafana:
                 container_name: grafana
