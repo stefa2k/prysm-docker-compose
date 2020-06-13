@@ -63,7 +63,8 @@ services:
                 <<: *logging
         prometheus:
                 container_name: prometheus
-                image: prom/prometheus
+                image: prom/prometheus:v2.19.0
+                user: root # https://github.com/prometheus/prometheus/issues/5976
                 restart: on-failure
                 hostname: prometheus
                 command: --storage.tsdb.retention.time=31d --config.file=/etc/prometheus/prometheus.yml
