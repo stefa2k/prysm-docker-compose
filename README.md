@@ -34,6 +34,11 @@ It's set to the latest stable version.
 
 Version | PRYSM_DOCKER_TAG
 --------|------------------
+bugfixed alpha.11 | HEAD-1dfeb6
+alpha.11| HEAD-87ca73
+alpha.10| HEAD-1f20cb
+alpha.9 | HEAD-3fe47c
+witti   | https://github.com/stefa2k/prysm-docker-compose/tree/witti
 schlesi | schlesi
 alpha.8 | HEAD-f831a7
 
@@ -45,12 +50,39 @@ Configuration files are located in the folder `./config`. To gain a better conne
 ## Validator accounts
 Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) to stake funds and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/). These are only short steps to make it work fast:
 
-1. Put your desired password into `./validator/keystore.json`.
+1. Put your desired password into `./validator/keystore.json` and `.env`
 2. Run `docker-compose -f create-account.yaml run validator-create-account` and use the **same password**.
 3. Use the `Raw Transaction Data` of the output at https://prylabs.net/participate to send GöETH to the smart contract.
 4. Run at least the `beacon` and the `validator` (see chapter below) and wait until the deposit is complete and your node is active.
 
 You can repeat step 2 & 3 as often as you like, make sure to restart your validator to make it notice your new accounts!
+
+### (early WIP) create lots of validator accounts
+Requirements:
+* Synced geth service
+* Enjoying the thrill to maybe loose coins
+
+#### Steps
+##### Set password
+Edit `.env` and set the password for your new accounts.
+##### Create a geth account
+```
+docker exec -it geth geth --goerli account new
+```
+##### Get lots of coins from your favorite coin buddy
+Go on Discord and ask for coins, Ivan is a good bet.
+##### Unlock account
+```
+docker exec -it geth geth attach http://localhost:8545/ --exec="personal.unlockAccount(\"put-your-address-here\",'put-your-password-here',3600)"
+```
+##### Check script
+Location: `./createAccounts.sh`
+Please check for the number of validators to create and if there is something that might go wrong on your setup. Start with a very small number of validators and increase if everything works.
+##### Run the script
+```
+./createAccounts.sh
+```
+Watch for errors. Your validator accounts will appear in directory `./validator`.
 
 ## Run your prysm Ethereum 2.0 staking node
 
@@ -92,3 +124,7 @@ Runs on http://localhost:9090, scrapes data of beacon, validator and slasher.
 Grafana listens on http://localhost:3000 and uses the data provided by prometheus service.
 
 Login with username `admin` and password `admin` (Grafana defaults), data source to Prometheus is already established and dashboards installed.
+
+## FAQ
+### My `docker-compose` command doesn't work (e. g. `ERROR: Version in "./docker-compose.yaml" is unsupported.`)
+Most linux distributions (including Ubuntu) don't serve recent docker-compose versions in their package management. You can install a compatible version by following [official docker.io documentation](https://docs.docker.com/compose/install/).

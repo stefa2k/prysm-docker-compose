@@ -5,9 +5,18 @@
 ##
 ############################################################
 
-datadir: /data
-
 ##############
 # Connectivity
 beacon-rpc-provider: beacon:4000
 monitoring-host: 0.0.0.0
+
+#####################################
+# Validator accounts & key management
+keymanager: wallet
+keymanageropts: /data/keystoreWallet.json
+
+############
+# Monitoring
+enable-account-metrics: true
+
+graffiti: ""
