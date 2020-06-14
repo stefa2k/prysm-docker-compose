@@ -98,8 +98,24 @@ services:
                         ES_JAVA_OPTS: "-Xmx256m -Xms256m"
                         discovery.type: single-node
                 volumes:
-                        - ./config/elasticsearch.yaml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-                        - elasticsearch:/usr/share/elasticsearch/data
+                        - ./config/elk/elasticsearch.yaml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+                        - ./elasticsearch:/usr/share/elasticsearch/data
+                <<: *logging
+        logstash:
+                container_name: logstash
+                image: docker.elastic.co/logstash/logstash:${ELK_VERSION}
+                restart: on-failure
+                hostname: logstash
+                depends_on:
+                        - elasticsearch
+                ports:
+                        - 127.0.0.1:5000:5000
+                        - 127.0.0.1:9600:9600
+                environment:
+                        LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+                volumes:
+                        - ./config/elk/logstash/logstash.yaml:/usr/share/logstash/config/logstash.yml:ro
+                        - ./config/elk/logstash/pipeline:/usr/share/logstash/pipeline:ro
                 <<: *logging
         kibana:
                 container_name: kibana
@@ -111,8 +127,5 @@ services:
                 ports:
                         - 127.0.0.1:5601:5601
                 volumes:
-                        - ./config/kibana.yaml:/usr/share/kibana/config/kibana.yml:ro
+                        - ./config/elk/kibana.yaml:/usr/share/kibana/config/kibana.yml:ro
                 <<: *logging
-
-volumes:
-        elasticsearch:        
