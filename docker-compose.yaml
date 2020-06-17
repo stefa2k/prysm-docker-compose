@@ -76,7 +76,7 @@ services:
                 <<: *logging
         grafana:
                 container_name: grafana
-                image: grafana/grafana:7.0.0
+                image: grafana/grafana:7.0.3
                 restart: on-failure
                 hostname: grafana
                 depends_on:
