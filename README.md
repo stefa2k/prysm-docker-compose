@@ -10,6 +10,9 @@ This docker-compose suite includes all parts to run and monitor a Prysm Ethereum
 ![image](https://user-images.githubusercontent.com/54934211/82313615-e1431400-99c8-11ea-9e04-eb7f7eda3caf.png)
 Credits to [prysm-grafana-dashboard](https://github.com/GuillaumeMiralles/prysm-grafana-dashboard) for providing the dashboards!
 
+![image](https://user-images.githubusercontent.com/54934211/84988542-7a895580-b142-11ea-8e25-d9c8a5499521.png)
+Using [docker-elk](https://github.com/stefa2k/docker-elk)
+
 ## Services
 * geth (beacon conntects to it to see deposits for validators)
 * beacon
