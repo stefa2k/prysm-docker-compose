@@ -42,7 +42,6 @@ services:
                 command: --config-file=/config/beacon.yaml
                 ports:
                         - 127.0.0.1:4000:4000
-                        - 127.0.0.1:3500:3500
                         - 13000:13000
                         - 12000:12000
                 volumes:
