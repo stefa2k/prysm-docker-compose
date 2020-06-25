@@ -27,8 +27,7 @@ services:
                 restart: always
                 hostname: haproxy
                 ports:
-                        - 18545:18545
-                        - 14000:14000
+                        - 80:80
                 volumes:
                         - ./config/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
                 <<: *logging
