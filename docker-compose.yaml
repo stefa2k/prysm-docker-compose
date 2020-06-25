@@ -21,15 +21,16 @@ services:
                 volumes:
                         - geth:/root/.ethereum
                 <<: *logging
-        rp_geth:
-                container_name: rp_geth
+        haproxy:
+                container_name: haproxy
                 image: haproxy:2.1-alpine
                 restart: always
-                hostname: rp_geth
+                hostname: haproxy
                 ports:
                         - 18545:18545
+                        - 14000:14000
                 volumes:
-                        - ./config/rp-geth.yaml:/usr/local/etc/haproxy/haproxy.cfg:ro
+                        - ./config/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
                 <<: *logging
         beacon:
                 container_name: beacon-chain
@@ -37,7 +38,7 @@ services:
                 restart: always
                 hostname: beacon-chain
                 depends_on:
-                        - geth
+                        - haproxy
                 command: --config-file=/config/beacon.yaml
                 ports:
                         - 127.0.0.1:4000:4000
@@ -45,7 +46,7 @@ services:
                         - 13000:13000
                         - 12000:12000
                 volumes:
-                        - ./config/beacon-using-rp.yaml:/config/beacon.yaml:ro
+                        - ./config/beacon-haproxy.yaml:/config/beacon.yaml:ro
                         - ./beacon:/data
                 <<: *logging
         validator:

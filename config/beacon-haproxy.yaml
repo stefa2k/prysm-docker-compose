@@ -27,4 +27,4 @@ grpc-gateway-host: 0.0.0.0
 
 #########################################
 # Connection to ha reverse proxy for geth
-http-web3provider: http://rp_geth:18545
+http-web3provider: http://haproxy:18545
