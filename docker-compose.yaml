@@ -13,13 +13,23 @@ services:
                 image: ethereum/client-go:v1.9.14
                 restart: always
                 hostname: geth
-                command: --goerli --rpc --rpcport=8545 --rpcaddr=0.0.0.0 --ws --wsaddr=0.0.0.0 --wsport=8546 --wsorigins="*" --rpcvhosts="*" --allow-insecure-unlock --rpcapi="db,eth,net,web3,personal"
+                command: --goerli --rpc --rpcport=8545 --rpcaddr=0.0.0.0 --rpcvhosts="*" --allow-insecure-unlock --rpcapi="db,eth,net,web3,personal"
                 ports:
                         - 30303:30303/tcp
                         - 30303:30303/udp
                         - 127.0.0.1:8545:8545
                 volumes:
-                        - ./geth:/root/.ethereum
+                        - geth:/root/.ethereum
+                <<: *logging
+        rp_geth:
+                container_name: rp_geth
+                image: haproxy:2.1-alpine
+                restart: always
+                hostname: rp_geth
+                ports:
+                        - 18545:18545
+                volumes:
+                        - ./config/rp-geth.yaml:/usr/local/etc/haproxy/haproxy.cfg:ro
                 <<: *logging
         beacon:
                 container_name: beacon-chain
@@ -31,10 +41,11 @@ services:
                 command: --config-file=/config/beacon.yaml
                 ports:
                         - 127.0.0.1:4000:4000
+                        - 127.0.0.1:3500:3500
                         - 13000:13000
                         - 12000:12000
                 volumes:
-                        - ./config/beacon.yaml:/config/beacon.yaml:ro
+                        - ./config/beacon-using-rp.yaml:/config/beacon.yaml:ro
                         - ./beacon:/data
                 <<: *logging
         validator:
@@ -87,3 +98,5 @@ services:
                         - ./grafana/provisioning:/etc/grafana/provisioning
                 <<: *logging
 
+volumes:
+        geth:

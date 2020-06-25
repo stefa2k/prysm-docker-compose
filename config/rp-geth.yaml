@@ -1,0 +1,54 @@
+global
+        log /dev/log local0 info
+        pidfile /run/haproxy.pid
+        daemon
+ 
+defaults
+        log     global
+        option  tcplog
+        option  dontlognull
+ 
+frontend geth_fe
+        mode http
+        
+        stats enable
+        stats uri /stats
+        stats refresh 10s
+        stats admin if TRUE
+
+        bind *:18545
+
+        timeout client 15s
+
+        default_backend geth_be
+        
+
+backend geth_be
+        mode http
+
+        option httpchk POST / HTTP/1.0\r\nContent-Type:\ application/json\r\nContent-Length:\ 59\r\n\r\n{\"jsonrpc\":\"2.0\",\"method\":\"eth_syncing\",\"params\":[],\"id\":1}
+        http-check expect string '{"jsonrpc":"2.0","id":1,"result":false}'
+        server srv1 geth:8545 check
+        server backup1 192.168.133.105:8545 check backup
+        timeout connect 3s
+        timeout queue 3s
+        timeout server 5s
+
+frontend beacon_fe
+        mode http
+        
+        stats enable
+        stats uri /stats
+        stats refresh 10s
+        stats admin if TRUE
+
+        bind *:14000
+
+        timeout client 15s
+
+        default_backend beacon_be
+
+backend beacon_be
+        mode http
+        
+        
