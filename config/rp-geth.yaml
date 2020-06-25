@@ -29,7 +29,6 @@ backend geth_be
         option httpchk POST / HTTP/1.0\r\nContent-Type:\ application/json\r\nContent-Length:\ 59\r\n\r\n{\"jsonrpc\":\"2.0\",\"method\":\"eth_syncing\",\"params\":[],\"id\":1}
         http-check expect string '{"jsonrpc":"2.0","id":1,"result":false}'
         server srv1 geth:8545 check
-        server backup1 192.168.133.105:8545 check backup
         timeout connect 3s
         timeout queue 3s
         timeout server 5s
@@ -51,4 +50,9 @@ frontend beacon_fe
 backend beacon_be
         mode http
         
-        
+        option httpchk GET /eth/v1alpha1/node/syncing HTTP/1.0\r\naccept:\ application/json
+        http-check expect string '{"syncing":false}'
+        server srv1 beacon:3500 check
+        timeout connect 3s
+        timeout queue 3s
+        timeout server 5s
