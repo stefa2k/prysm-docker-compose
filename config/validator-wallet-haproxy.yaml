@@ -10,6 +10,9 @@
 beacon-rpc-provider: haproxy:14000
 monitoring-host: 0.0.0.0
 
+enable-external-slasher-protection: true
+slasher-rpc-provider: haproxy:15000
+
 #####################################
 # Validator accounts & key management
 keymanager: wallet
@@ -19,4 +22,6 @@ keymanageropts: /data/keystoreWallet.json
 # Monitoring
 enable-account-metrics: true
 
+###########
+# Fun Stuff
 graffiti: ""
