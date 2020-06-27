@@ -11,7 +11,7 @@ beacon-rpc-provider: haproxy:14000
 monitoring-host: 0.0.0.0
 
 enable-external-slasher-protection: true
-slasher-rpc-provider: haproxy:15000
+slasher-rpc-provider: haproxy:14002
 
 #####################################
 # Validator accounts & key management
