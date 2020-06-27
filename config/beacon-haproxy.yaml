@@ -21,6 +21,9 @@ p2p-denylist: ["10.0.0.0/8","172.16.0.0/12","192.168.0.0/16","100.64.0.0/10","16
 # changing this also needs to be changed in docker-compose.yaml!
 p2p-tcp-port: 13000
 
+# slasher
+slasher-provider: haproxy:14002
+
 # json rpc port
 grpc-gateway-port: 3500
 grpc-gateway-host: 0.0.0.0
@@ -28,3 +31,4 @@ grpc-gateway-host: 0.0.0.0
 #########################################
 # Connection to ha reverse proxy for geth
 http-web3provider: http://haproxy:18545
+
