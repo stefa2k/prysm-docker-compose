@@ -48,6 +48,8 @@ alpha.8 | HEAD-f831a7
 
 This table gets updated every time a new release happens until prysm dev team adds a "stable" tag or something similar. https://github.com/prysmaticlabs/documentation/issues/103
 
+Used docker registry: https://console.cloud.google.com/gcr/images/prysmaticlabs/GLOBAL/prysm/beacon-chain
+
 ### Public ip & other Prysm parameters/arguments
 Configuration files are located in the folder `./config`. To gain a better connectivity for your beacon node you should specifiy your public ip and/or your dns name in `./config/beacon.yaml`. Follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
 
