@@ -15,6 +15,3 @@ monitoring-host: 0.0.0.0
 keymanager: keystore
 keymanageropts: /data/keystore.json
 
-############
-# Monitoring
-enable-account-metrics: true
