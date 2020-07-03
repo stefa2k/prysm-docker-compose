@@ -19,17 +19,7 @@ services:
                         - 30303:30303/udp
                         - 127.0.0.1:8545:8545
                 volumes:
-                        - geth:/root/.ethereum
-                <<: *logging
-        haproxy:
-                container_name: haproxy
-                image: haproxy:2.1-alpine
-                restart: always
-                hostname: haproxy
-                ports:
-                        - 80:80
-                volumes:
-                        - ./config/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+                        - ./geth:/root/.ethereum
                 <<: *logging
         beacon:
                 container_name: beacon-chain
@@ -37,14 +27,14 @@ services:
                 restart: always
                 hostname: beacon-chain
                 depends_on:
-                        - haproxy
+                        - geth
                 command: --config-file=/config/beacon.yaml
                 ports:
                         - 127.0.0.1:4000:4000
                         - 13000:13000
                         - 12000:12000
                 volumes:
-                        - ./config/beacon-haproxy.yaml:/config/beacon.yaml:ro
+                        - ./config/beacon.yaml:/config/beacon.yaml:ro
                         - ./beacon:/data
                 <<: *logging
         validator:
@@ -53,7 +43,7 @@ services:
                 restart: on-failure
                 hostname: validator
                 depends_on:
-                        - haproxy
+                        - beacon
                 command: --config-file=/config/validator.yaml
                 volumes:
                         - ./config/validator.yaml:/config/validator.yaml:ro
@@ -97,5 +87,3 @@ services:
                         - ./grafana/provisioning:/etc/grafana/provisioning
                 <<: *logging
 
-volumes:
-        geth:
