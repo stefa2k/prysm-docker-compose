@@ -12,5 +12,9 @@ monitoring-host: 0.0.0.0
 
 #####################################
 # Validator accounts & key management
-keymanager: keystore
-keymanageropts: /data/keystore.json
+keymanager: wallet
+keymanageropts: /data/keystoreWallet.json
+
+###########
+# Fun Stuff
+graffiti: ""
