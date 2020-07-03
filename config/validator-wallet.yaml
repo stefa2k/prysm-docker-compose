@@ -15,6 +15,7 @@ monitoring-host: 0.0.0.0
 keymanager: wallet
 keymanageropts: /data/keystoreWallet.json
 
+
 ###########
 # Fun Stuff
 graffiti: ""
