@@ -28,6 +28,9 @@ slasher-provider: haproxy:14002
 grpc-gateway-port: 3500
 grpc-gateway-host: 0.0.0.0
 
+# enable db backup endpoint
+enable-db-backup-webhook: true
+
 #########################################
 # Connection to ha reverse proxy for geth
 http-web3provider: http://haproxy:18545
