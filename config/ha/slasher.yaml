@@ -11,4 +11,5 @@ datadir: /data
 # Connectivity
 beacon-rpc-provider: haproxy:14000
 monitoring-host: 0.0.0.0
+monitoring-port: 8680
 rpc-host: 0.0.0.0
