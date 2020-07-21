@@ -20,10 +20,6 @@ slasher-rpc-provider: haproxy:14002
 keymanager: wallet
 keymanageropts: /data/keystoreWallet.json
 
-############
-# Monitoring
-enable-account-metrics: true
-
 ###########
 # Fun Stuff
 graffiti: ""
