@@ -34,6 +34,9 @@ grpc-gateway-host: 0.0.0.0
 # enable db backup endpoint
 enable-db-backup-webhook: true
 
+# speed up initial sync
+disable-initial-sync-verify-all-signatures: yes
+
 #########################################
 # Connection to ha reverse proxy for geth
 http-web3provider: http://haproxy:18545
