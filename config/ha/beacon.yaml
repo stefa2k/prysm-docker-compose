@@ -25,6 +25,7 @@ p2p-tcp-port: 13000
 
 # slasher
 slasher-provider: haproxy:14002
+historical-slasher-node: yes
 
 # json rpc port
 grpc-gateway-port: 3500
