@@ -37,6 +37,7 @@ It's set to the latest stable version.
 
 Version | PRYSM_DOCKER_TAG
 --------|------------------
+bugfixed alpha.16 | HEAD-62ae22
 alpha.16 | HEAD-367738
 bugfixed alpha.15 | HEAD-c26151
 alpha.15 | HEAD-e0c803
