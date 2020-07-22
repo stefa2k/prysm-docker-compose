@@ -8,6 +8,9 @@
 ##############
 # Connectivity
 beacon-rpc-provider: haproxy:14000
+
+grpc-retries: 18446744073709551615
+
 monitoring-host: 0.0.0.0
 
 enable-local-protection: true
