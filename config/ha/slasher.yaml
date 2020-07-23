@@ -15,4 +15,4 @@ monitoring-port: 8680
 rpc-host: 0.0.0.0
 
 # Enables historical attestation detection for the slasher
-enable-historical-detection: true
+enable-historical-detection: no
