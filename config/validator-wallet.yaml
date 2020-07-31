@@ -19,5 +19,3 @@ keymanageropts: /data/keystoreWallet.json
 ###########
 # Fun Stuff
 graffiti: ""
-
-medalla: yes

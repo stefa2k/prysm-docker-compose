@@ -40,6 +40,3 @@ disable-initial-sync-verify-all-signatures: yes
 #########################################
 # Connection to ha reverse proxy for geth
 http-web3provider: http://haproxy:18545
-
-medalla: yes
-
