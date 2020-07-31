@@ -12,6 +12,7 @@ monitoring-host: 0.0.0.0
 
 #####################################
 # Validator accounts & key management
+disable-accounts-v2: yes
 keymanager: wallet
 keymanageropts: /data/keystoreWallet.json
 
