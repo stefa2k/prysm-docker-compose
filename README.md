@@ -28,77 +28,17 @@ In case you want to run only beacon & validator (geth, slasher, prometheus, graf
 
 ## (optional) Configure your node
 
-### Prysm version
-Edit `.env` file to set the docker tag to use (version of nodes):
-```
-PRYSM_DOCKER_TAG=[prysm-version]
-```
-It's set to the latest stable version.
-
-Version | PRYSM_DOCKER_TAG
---------|------------------
-medalla alpha.17 | HEAD-f414cf
-medalla alpha.16 | HEAD-0cd80b
-bugfixed alpha.16 | HEAD-62ae22
-alpha.16 | HEAD-367738
-bugfixed alpha.15 | HEAD-c26151
-alpha.15 | HEAD-e0c803
-alpha.14 | HEAD-c2deab
-bugfixed alpha.13 | HEAD-a279f1
-bugfixed alpha.13 | HEAD-46b82e
-bugfixed alpha.13 | HEAD-6c7131
-alpha.13 | HEAD-047880
-bugfixed alpha.11 | HEAD-1dfeb6
-alpha.11| HEAD-87ca73
-alpha.10| HEAD-1f20cb
-alpha.9 | HEAD-3fe47c
-witti   | https://github.com/stefa2k/prysm-docker-compose/tree/witti
-schlesi | schlesi
-alpha.8 | HEAD-f831a7
-
-This table gets updated every time a new release happens until prysm dev team adds a "stable" tag or something similar. https://github.com/prysmaticlabs/documentation/issues/103
-
-Used docker registry: https://console.cloud.google.com/gcr/images/prysmaticlabs/GLOBAL/prysm/beacon-chain
-
 ### Public ip & other Prysm parameters/arguments
 Configuration files are located in the folder `./config`. To gain a better connectivity for your beacon node you should specifiy your public ip and/or your dns name in `./config/beacon.yaml`. Follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
 
-## Validator accounts
-Please read up on how to use the [validator](https://docs.prylabs.network/docs/how-prysm-works/prysm-validator-client/) to stake funds and how to [activate the validator](https://docs.prylabs.network/docs/install/lin/activating-a-validator/). These are only short steps to make it work fast:
+## Validator accounts with launchpad
+Please complete the steps on [launchpad](https://medalla.launchpad.ethereum.org/) and store the generated files of `~/eth2.0-deposit-cli/validator_keys` in `./launchpad/eth2.0-deposit-cli/validator_keys`. The necessary directories need to be created. Please create the directories `./validator/wallets` and `./validator/passwords`.
 
-1. Put your desired password into `./validator/keystore.json` and `.env`
-2. Run `docker-compose -f create-account.yaml run validator-create-account` and use the **same password**.
-3. Use the `Raw Transaction Data` of the output at https://prylabs.net/participate to send GöETH to the smart contract.
-4. Run at least the `beacon` and the `validator` (see chapter below) and wait until the deposit is complete and your node is active.
+1. Generate your validator(s) using [launchpad](https://medalla.launchpad.ethereum.org/) and complete the process
+2. Copy your generated validator(s) from `~/eth2.0-deposit-cli/validator_keys` to `./launchpad/eth2.0-deposit-cli/validator_keys`
+2. Run `docker-compose -f create-account.yaml run validator-import-launchpad` and use the **same password** as in the generation of the validator(s)
 
 You can repeat step 2 & 3 as often as you like, make sure to restart your validator to make it notice your new accounts!
-
-### (early WIP) create lots of validator accounts
-Requirements:
-* Synced geth service
-* Enjoying the thrill to maybe loose coins
-
-#### Steps
-##### Set password
-Edit `.env` and set the password for your new accounts.
-##### Create a geth account
-```
-docker exec -it geth geth --goerli account new
-```
-##### Get lots of coins from your favorite coin buddy
-Go on Discord and ask for coins, Ivan is a good bet.
-##### Unlock account
-```
-docker exec -it geth geth attach http://localhost:8545/ --exec="personal.unlockAccount(\"put-your-address-here\",'put-your-password-here',3600)"
-```
-##### Check script
-Location: `./createAccounts.sh`
-Please check for the number of validators to create and if there is something that might go wrong on your setup. Start with a very small number of validators and increase if everything works.
-##### Run the script
-```
-./createAccounts.sh
-```
-Watch for errors. Your validator accounts will appear in directory `./validator`.
 
 ## Run your prysm Ethereum 2.0 staking node
 

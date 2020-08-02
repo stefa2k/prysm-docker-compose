@@ -1,8 +1,9 @@
 version: "3.7"
 services:
-        validator-create-account:
-                container_name: validator-create-account
+        validator-import-launchpad:
+                container_name: validator-import-launchpad
                 image: gcr.io/prysmaticlabs/prysm/validator:${PRYSM_DOCKER_TAG}
-                command: accounts create --keystore-path=/data --password=${CREATE_ACCOUNT_PASSWORD}
+                command: accounts-v2 import --keys-dir="/launchpad/eth2.0-deposit-cli/validator_keys" --wallet-dir="/data/wallets" --passwords-dir="/data/passwords"
                 volumes:
                         - ./validator:/data
+                        - ./launchpad:/launchpad
