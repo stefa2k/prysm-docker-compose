@@ -14,3 +14,7 @@ monitoring-host: 0.0.0.0
 # Validator accounts & key management
 wallet-dir: /data/wallets
 passwords-dir: /data/passwords
+
+###########
+# Fun Stuff
+graffiti: ""
