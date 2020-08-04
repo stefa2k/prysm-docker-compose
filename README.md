@@ -82,7 +82,7 @@ Grafana listens on http://localhost:3000 and uses the data provided by prometheu
 Login with username `admin` and password `admin` (Grafana defaults), data source to Prometheus is already established and dashboards installed.
 
 ### ELK
-To aggregate and display logs with [ELK-Stack](https://www.elastic.co/what-is/elk-stack) use [prysm-ansible's](https://github.com/stefa2k/prysm-ansible) `elknode.yaml` playbook or follow the installation advice on [docker-elk](https://github.com/stefa2k/docker-elk).
+To aggregate and display logs with [ELK-Stack](https://www.elastic.co/what-is/elk-stack) use [docker-elk](https://github.com/stefa2k/docker-elk) and easy cluster/standalone setup with [ansible-elk](https://github.com/stefa2k/ansible-elk).
 
 ## FAQ
 ### My `docker-compose` command doesn't work (e. g. `ERROR: Version in "./docker-compose.yaml" is unsupported.`)
