@@ -32,7 +32,7 @@ In case you want to run only beacon & validator (geth, slasher, prometheus, graf
 Configuration files are located in the folder `./config`. To gain a better connectivity for your beacon node you should specifiy your public ip and/or your dns name in `./config/beacon.yaml`. Follow the guide [Improve Peer-to-Peer Connectivity](https://docs.prylabs.network/docs/prysm-usage/p2p-host-ip/).
 
 ## Validator accounts with launchpad
-Please complete the steps on [launchpad](https://medalla.launchpad.ethereum.org/) and store the generated files of `~/eth2.0-deposit-cli/validator_keys` in `./launchpad/eth2.0-deposit-cli/validator_keys`. The necessary directories need to be created. Please create the directories `./validator/wallets` and `./validator/passwords`.
+Please complete the steps on [launchpad](https://medalla.launchpad.ethereum.org/) and store the generated files of `~/eth2.0-deposit-cli/validator_keys` in `./launchpad/eth2.0-deposit-cli/validator_keys`. The necessary directories need to be created. Please create the directories `./validator/wallets` and put your wallet password in `./validator/passwords/wallet-password`.
 
 1. Generate your validator(s) using [launchpad](https://medalla.launchpad.ethereum.org/) and complete the process
 2. Copy your generated validator(s) from `~/eth2.0-deposit-cli/validator_keys` to `./launchpad/eth2.0-deposit-cli/validator_keys`
