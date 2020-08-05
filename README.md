@@ -89,6 +89,10 @@ To aggregate and display logs with [ELK-Stack](https://www.elastic.co/what-is/el
 Most linux distributions (including Ubuntu) don't serve recent docker-compose versions in their package management. You can install a compatible version by following [official docker.io documentation](https://docs.docker.com/compose/install/).
 
 ### I keep missing attestations or keep getting warnings/errors about `roughtime`
+E. g. error messages like this:
+```
+WARN roughtime: Roughtime reports your clock is off by more than 2 seconds offset=4h0m0.345549475s
+```
 Make sure the OS' clock is synced. For Windows 10 and its subsystem linux might run on different times, to check this run `wsl` and then `date` (may differ by the OS you have installed).
 
 Ask google on how to get your OS' time synced again.
