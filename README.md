@@ -88,6 +88,11 @@ To aggregate and display logs with [ELK-Stack](https://www.elastic.co/what-is/el
 ### My `docker-compose` command doesn't work (e. g. `ERROR: Version in "./docker-compose.yaml" is unsupported.`)
 Most linux distributions (including Ubuntu) don't serve recent docker-compose versions in their package management. You can install a compatible version by following [official docker.io documentation](https://docs.docker.com/compose/install/).
 
+### I keep missing attestations or keep getting warnings/errors about `roughtime`
+Make sure the OS' clock is synced. For Windows 10 and its subsystem linux might run on different times, to check this run `wsl` and then `date` (may differ by the OS you have installed).
+
+Ask google on how to get your OS' time synced again.
+
 ## Support the maintainer
 This software is provided under MIT license and therefore freely usable without restrictions. Dontations are always welcome:
 
