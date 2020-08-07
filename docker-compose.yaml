@@ -85,5 +85,8 @@ services:
                         - 127.0.0.1:3000:3000
                 volumes:
                         - ./grafana/provisioning:/etc/grafana/provisioning
+                        - grafana_data:/var/lib/grafana
                 <<: *logging
 
+volumes:
+        grafana_data:
