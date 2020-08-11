@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+        beacon:
+                image: eth2spectrum/prysm-beacon-chain-arm64:${PRYSM_DOCKER_TAG}
+        validator:
+                image: eth2spectrum/prysm-validator-arm64:${PRYSM_DOCKER_TAG}
+        slasher:
+                image: eth2spectrum/prysm-slasher-arm64:${PRYSM_DOCKER_TAG}
