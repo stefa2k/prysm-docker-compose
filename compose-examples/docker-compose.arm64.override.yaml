@@ -19,3 +19,7 @@ services:
                 image: eth2spectrum/prysm-validator-arm64:${PRYSM_ARM64_DOCKER_TAG}
         slasher:
                 image: eth2spectrum/prysm-slasher-arm64:${PRYSM_ARM64_DOCKER_TAG}
+        prometheus:
+                <<: *disabled-service
+        grafana:
+                <<: *disabled-service
