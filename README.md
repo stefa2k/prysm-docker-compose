@@ -24,7 +24,14 @@ Using [docker-elk](https://github.com/stefa2k/docker-elk)
 **All services are enabled by default.**
 
 ### Minimal Setup (beacon & validator only)
-In case you want to run only beacon & validator (geth, slasher, prometheus, grafana get disabled) move the `compose-examples/docker-compose.beacon-validator.override.yaml` file in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yaml`. Read up on [docker-compose files & override](https://docs.docker.com/compose/extends/#multiple-compose-files) to customize your setup further.
+In case you want to run only beacon & validator (geth, slasher, prometheus, grafana get disabled) move the `./compose-examples/docker-compose.beacon-validator.override.yaml` file in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yaml`. Read up on [docker-compose files & override](https://docs.docker.com/compose/extends/#multiple-compose-files) to customize your setup further.
+
+### ARM64 (raspberry pi)
+Using this setup on a raspberry pi is as easy as copying the compose override file from `./compose-examples/docker-compose.arm64.override.yaml` to `./docker-compose.override.yaml`. The override file should then be in the same folder as your `docker-compose.override.yaml`:
+```
+cp compose-examples/docker-compose.arm64.override.yaml docker-compose.override.yaml
+```
+This also disables prometheus and grafana and uses external eth1 node connection (see `./config/beacon-no-geth.yaml` for changing the endpoint).
 
 ## (optional) Configure your node
 
