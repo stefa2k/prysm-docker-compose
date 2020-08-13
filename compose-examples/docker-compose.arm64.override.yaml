@@ -11,11 +11,11 @@ services:
         geth:
                 <<: *disabled-service
         beacon:
-                image: eth2spectrum/prysm-beacon-chain-arm64:${PRYSM_DOCKER_TAG}
+                image: eth2spectrum/prysm-beacon-chain-arm64:${PRYSM_ARM64_DOCKER_TAG}
                 volumes:
                         - ./config/beacon-no-geth.yaml:/config/beacon.yaml:ro
                         - ./beacon:/data
         validator:
-                image: eth2spectrum/prysm-validator-arm64:${PRYSM_DOCKER_TAG}
+                image: eth2spectrum/prysm-validator-arm64:${PRYSM_ARM64_DOCKER_TAG}
         slasher:
-                image: eth2spectrum/prysm-slasher-arm64:${PRYSM_DOCKER_TAG}
+                image: eth2spectrum/prysm-slasher-arm64:${PRYSM_ARM64_DOCKER_TAG}
