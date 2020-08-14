@@ -104,6 +104,9 @@ Make sure the OS' clock is synced. For Windows 10 and its subsystem linux might 
 
 Ask google on how to get your OS' time synced again.
 
+### How do I install docker and docker-compose on raspberry pi?
+There is an excellent short article about [how to install docker and docker-compose on raspberry pi](https://dev.to/rohansawant/installing-docker-and-docker-compose-on-the-raspberry-pi-in-5-simple-steps-3mgl), you can also use google to find another tutorial for it.
+
 ## Support the maintainer
 This software is provided under MIT license and therefore freely usable without restrictions. Dontations are always welcome:
 
