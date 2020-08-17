@@ -23,7 +23,7 @@ services:
                 <<: *logging
         beacon:
                 container_name: beacon-chain
-                image: gcr.io/prysmaticlabs/prysm/beacon-chain:medallaFix
+                image: gcr.io/prysmaticlabs/prysm/beacon-chain:${PRYSM_DOCKER_TAG}
                 restart: always
                 hostname: beacon-chain
                 depends_on:
