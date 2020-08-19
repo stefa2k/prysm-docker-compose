@@ -13,9 +13,9 @@ grpc-retries: 18446744073709551615
 
 monitoring-host: 0.0.0.0
 
-enable-local-protection: true
+enable-local-protection: yes
 
-enable-external-slasher-protection: no
+enable-external-slasher-protection: yes
 slasher-rpc-provider: haproxy:14002
 
 #####################################
