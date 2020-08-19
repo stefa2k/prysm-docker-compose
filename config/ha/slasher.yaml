@@ -16,3 +16,5 @@ rpc-host: 0.0.0.0
 
 # Enables historical attestation detection for the slasher
 enable-historical-detection: no
+
+spans-cache-size: 1500
