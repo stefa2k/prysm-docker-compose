@@ -24,7 +24,6 @@ p2p-denylist: ["10.0.0.0/8","172.16.0.0/12","192.168.0.0/16","100.64.0.0/10","16
 p2p-tcp-port: 13000
 
 # slasher
-slasher-provider: haproxy:14002
 historical-slasher-node: no
 
 # json rpc port
@@ -40,3 +39,5 @@ disable-initial-sync-verify-all-signatures: yes
 #########################################
 # Connection to ha reverse proxy for geth
 http-web3provider: http://haproxy:18545
+
+dev: yes

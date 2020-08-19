@@ -15,7 +15,7 @@ monitoring-host: 0.0.0.0
 
 enable-local-protection: true
 
-enable-external-slasher-protection: true
+enable-external-slasher-protection: no
 slasher-rpc-provider: haproxy:14002
 
 #####################################
