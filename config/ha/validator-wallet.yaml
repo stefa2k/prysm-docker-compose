@@ -15,6 +15,7 @@ monitoring-host: 0.0.0.0
 monitoring-port: 8580
 
 enable-local-protection: yes
+datadir: /data/db
 
 enable-external-slasher-protection: yes
 slasher-rpc-provider: haproxy:14002
