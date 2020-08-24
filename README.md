@@ -107,6 +107,9 @@ Ask google on how to get your OS' time synced again.
 ### How do I install docker and docker-compose on raspberry pi?
 There is an excellent short article about [how to install docker and docker-compose on raspberry pi](https://dev.to/rohansawant/installing-docker-and-docker-compose-on-the-raspberry-pi-in-5-simple-steps-3mgl), you can also use google to find another tutorial for it.
 
+### I want to use a specific Ethereum 1 node!
+Edit the line with `http-web3provider` in [./config/beacon.yaml](https://github.com/stefa2k/prysm-docker-compose/blob/master/config/beacon.yaml) and set your Ethereum 1 node URL, e. g. use it with [Infura.io](https://infura.io/) and make it look like this: `http-web3provider: https://goerli.infura.io:443/v3/put-your-infura-id-here`.
+
 ## Support the maintainer
 This software is provided under MIT license and therefore freely usable without restrictions. Dontations are always welcome:
 
