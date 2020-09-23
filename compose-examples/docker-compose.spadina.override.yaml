@@ -1,0 +1,22 @@
+version: "3.7"
+
+x-disabled-service:
+        &disabled-service
+                image: tianon/true
+                restart: "no"
+                command: ""
+                entrypoint: ""
+
+services:
+        beacon:
+                volumes:
+                        - ./config/spadina/beacon.yaml:/config/beacon.yaml:ro
+                        - ./beacon:/data
+        validator:
+                volumes:
+                        - ./config/spadina/validator.yaml:/config/validator.yaml:ro
+                        - ./validator:/data
+        slasher:
+                volumes:
+                        - ./config/spadina/slasher.yaml:/config/slasher.yaml:ro
+                        - ./slasher:/data
