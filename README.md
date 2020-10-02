@@ -36,6 +36,11 @@ This also disables prometheus and grafana and uses external eth1 node connection
 ### Spadina
 To run with [Spadina testnet](https://github.com/goerli/medalla/tree/master/spadina) copy `./compose-examples/docker-compose.spadina.override.yaml` in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yaml`.
 
+### Zinken
+To run with [Zinken testnet](https://github.com/goerli/medalla/tree/master/zinken) copy `./compose-examples/docker-compose.zinken.override.yaml` in the same folder as your `docker-compose.yaml` and rename it to `docker-compose.override.yaml`.
+
+Thanks to [@danbryan](https://github.com/danbryan) for this contribution!
+
 ## (optional) Configure your node
 
 ### Public ip & other Prysm parameters/arguments
