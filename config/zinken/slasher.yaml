@@ -1,0 +1,15 @@
+############################################################
+##
+## Read up on parameters on
+## https://docs.prylabs.network/docs/prysm-usage/parameters/
+##
+############################################################
+
+datadir: /data
+
+##############
+# Connectivity
+beacon-rpc-provider: beacon:4000
+monitoring-host: 0.0.0.0
+
+zinken: yes

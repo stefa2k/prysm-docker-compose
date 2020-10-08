@@ -1,0 +1,21 @@
+version: "3.7"
+
+x-disabled-service: &disabled-service
+        image: tianon/true
+        restart: "no"
+        command: ""
+        entrypoint: ""
+
+services:
+        beacon:
+                volumes:
+                        - ./config/zinken/beacon.yaml:/config/beacon.yaml:ro
+                        - ./beacon:/data
+        validator:
+                volumes:
+                        - ./config/zinken/validator.yaml:/config/validator.yaml:ro
+                        - ./validator:/data
+        slasher:
+                volumes:
+                        - ./config/zinken/slasher.yaml:/config/slasher.yaml:ro
+                        - ./slasher:/data
