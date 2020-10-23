@@ -5,6 +5,8 @@
 ##
 ############################################################
 
+accept-terms-of-use: yes
+
 datadir: /data
 
 #######################
@@ -27,3 +29,5 @@ enable-db-backup-webhook: true
 ##############################
 # Connection to geth container
 http-web3provider: http://geth:8545
+
+blst: yes

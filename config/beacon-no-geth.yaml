@@ -5,6 +5,8 @@
 ##
 ############################################################
 
+accept-terms-of-use: yes
+
 datadir: /data
 
 #######################
@@ -25,3 +27,5 @@ p2p-tcp-port: 13000
 enable-db-backup-webhook: true
 
 http-web3provider: https://goerli.prylabs.net
+
+blst: yes
