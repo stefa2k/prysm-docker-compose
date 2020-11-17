@@ -1,6 +1,6 @@
 # prysm-docker-compose
 
-# This repo is no longer maintained, the project migrated to https://github.com/stefa2k/ethereum2-docker-compose and is now part of the repository there!
+# This repo is no longer maintained, the project migrated to https://github.com/stereum-dev/ethereum2-docker-compose and is now part of the repository there!
 
 This docker-compose suite includes all parts to run and monitor a Prysm Ethereum 2.0 staking node. Please read this README in order to customize it to your needs.
 
